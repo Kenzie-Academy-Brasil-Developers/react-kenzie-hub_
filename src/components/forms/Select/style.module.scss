@@ -1,0 +1,33 @@
+.selectBox {
+    display: flex;
+    width: 329.929px;
+    height: 48px;
+    padding: 0px 16.243px;
+    align-items: center;
+    gap: 10.152px;
+
+    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    color: #F8F9FA;
+    font-family: "Inter", sans-serif;
+    font-size: 16.243px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26.394px;
+
+
+    border-radius: 4px;
+    border: 1.218px solid #F8F9FA;
+
+    background: #343B46;
+
+
+
+    p{
+        margin-top: .5rem;
+        color: red;
+    }
+}

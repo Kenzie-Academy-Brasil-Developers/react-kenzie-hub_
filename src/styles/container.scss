@@ -1,0 +1,22 @@
+.container {
+    display: inline-flex;
+    padding: 42px 22px;
+    flex-direction: column;
+    // gap: 22px;
+
+    border-radius: 4px;
+    background-color:  #212529;
+    box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+    
+    color:#868E96;
+    
+    font-family: 'Inter',sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; /* 150% */;
+
+    &.sm{
+        max-width: 470px;
+    }
+}

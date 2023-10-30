@@ -1,0 +1,83 @@
+.btnLogin {
+    display: flex;
+    width: 329.929px;
+    height: 48px;
+    padding: 0px 16.243px;
+    justify-content: center;
+    align-items: center;
+    gap: 8.143px;
+    flex-shrink: 0;
+
+    border-radius: 3.209px;
+    border: 0.977px solid  #FF577F;
+    background: #FF577F;
+
+    color: #FFF;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 12.835px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21.173px; /* 164.964% */
+
+    transition: 0.4s;
+}
+
+.btnRegister {
+    display: flex;
+    width: 329.929px;
+    height: 48px;
+    padding: 0px 16.243px;
+    justify-content: center;
+    align-items: center;
+    gap: 8.143px;
+    flex-shrink: 0;
+
+    border-radius: 3.209px;
+    border: 0.977px solid #868E96;
+    background: #868E96;
+
+    color:#F8F9FA;
+    font-family: 'Inter', sans-serif;
+    font-size: 12.835px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21.173px; /* 164.964% */
+
+    transition: 0.4s;
+}
+
+.btnOutline {
+    display: flex;
+    width: 326px;
+    height: 48px;
+    padding: 0px 22.334px;
+    justify-content: center;
+    align-items: center;
+    gap: 10.152px;
+    flex-shrink: 0;
+
+    border-radius: 4px;
+    border: 1.218px solid #59323F;
+    background: #59323F;
+
+    transition: 0.4s;
+
+}
+
+.link {
+    display: inline-flex;
+    height: 40.11px;
+    padding: 0px 16.243px;
+    justify-content: center;
+    align-items: center;
+    gap: 10.152px;
+    flex-shrink: 0;
+
+    border-radius: 4px;
+    background: var(--grey-3, #212529);
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
