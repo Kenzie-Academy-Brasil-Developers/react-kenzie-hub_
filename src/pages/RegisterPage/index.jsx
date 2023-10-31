@@ -8,9 +8,9 @@ export const RegisterPage = () => {
 
     return (
         <>
-            <div>
+            {/* <div>
                 <Link className="linkBack" to="/">Voltar</Link>
-            </div>
+            </div> */}
             <main className={pageStyles.pageBox}>
                 <div className="container sm">
                     <div className="">

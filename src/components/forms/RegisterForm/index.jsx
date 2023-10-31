@@ -105,7 +105,7 @@ export const RegisterForm = () => {
             </Select>
 
             <div>
-                <button className="btnOutline" type="submit">Cadastre-se</button>
+                <button className={styles.btnRegister} type="submit">Cadastre-se</button>
             </div>
         </form>
     );
