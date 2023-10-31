@@ -11,18 +11,12 @@
     --color-disable: #59323F;
 }
 
-// body{
-//     background: var(--color-black1);
-// }
-
 input {
     display: flex;
     width: 329.929px;
     height: 48px;
     padding: 0px 16.243px;
-    align-items: center;
-    gap: 10.152px;
-    flex-shrink: 0;
+
     border-radius: 4px;
     border: 1.218px solid var(--grey-0, #F8F9FA);
     background: var(--grey-2, #343B41); 

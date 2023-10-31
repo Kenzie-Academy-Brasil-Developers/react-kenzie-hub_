@@ -1,17 +1,18 @@
-import { UserPage } from "../../pages/UserPage";
-// import styles from './style.module.css';
+// import { UserPage } from "../../pages/UserPage";
+import styles from './style.module.scss';
+import Logo from "../../assets/KenzieHub.png";
 
-export const Header = ({ user, userLogout }) => {
+export const Header = ({userLogout }) => {
+    const user = localStorage.getItem("USER")
+
     return (
-        <header className={styles.container}>
+        <header className={styles.containerBox}>
             <div>
-                <div>
-                    <h1>Kenzie Hub</h1>
-                    <div>
-                        <p className="paragraph">{user.name}</p>
-                        <p className="paragraph">{user.email}</p>
-                    </div>
+                <div className='headline'>
+                    <img className={styles.headerImage} src={Logo}></img>
+                    {user && (
                     <button className="btnOutline" onClick={() => userLogout()}>Sair</button>
+                    )}
                 </div>
             </div>
         </header>

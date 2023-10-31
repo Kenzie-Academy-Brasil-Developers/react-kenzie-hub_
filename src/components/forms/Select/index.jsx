@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import styles from "./style.module.scss";
 
-export const Select = forwardRef(({ error, Label, id, ...rest }, ref) => {
+export const Select = forwardRef(({ error, label, id, ...rest }, ref) => {
     return (
         <div>
-            <label className="label" htmlFor={id}>{Label}</label>
+            <label className="label" htmlFor={id}>{label}</label>
             <select className={styles.selectBox} ref={ref} {...rest}>
                 <option value="Primeiro">Introdução ao Frontend</option>
                 <option value="Segundo">Frontend Avançado</option>

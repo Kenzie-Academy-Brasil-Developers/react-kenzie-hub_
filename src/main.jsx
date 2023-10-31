@@ -8,8 +8,6 @@ import "./styles/button.scss";
 import "./styles/container.scss";
 import "./styles/modules/pageBox.module.scss";
 
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>

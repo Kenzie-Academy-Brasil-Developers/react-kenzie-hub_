@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 22.334px;
+    gap: 10px;
 
     color: var(--grey-50, #868E96);
     font-family: Inter;
@@ -14,3 +14,8 @@
     font-weight: 400;
     line-height: 26.394px; /* 162.5% */
 }
+
+.path {
+    display: flex;
+}
+

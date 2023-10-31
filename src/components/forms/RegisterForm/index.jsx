@@ -7,11 +7,14 @@ import { registerFormSchema } from "./registerForm.schema";
 import api from "../../../services";
 import { Select } from "../Select";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import { toast } from "react-toastify"
+import styles from "./style.module.scss";
 
 export const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm({
         resolver: zodResolver(registerFormSchema),
     });
+    console.log(errors);
 
     const [loading, setLoading] = useState(false);
     const [isHidden, setIsHidden] = useState(true);
@@ -19,6 +22,7 @@ export const RegisterForm = () => {
     const navigate = useNavigate();
 
     const userRegister = async (payLoad) => {
+        console.log(payLoad)
         try {
             setLoading(true);
             await api.post("/users", payLoad);
@@ -26,9 +30,8 @@ export const RegisterForm = () => {
             toast.success("Cadastro realizado com sucesso!");
         } catch (error) {
             console.log(error);
-            /* if (error.response?.data === "error") */ {
+            {
                 toast.error("Algo deu errado! :c");
-                console.log(alert)
             }
         } finally {
             setLoading(false)
@@ -41,77 +44,68 @@ export const RegisterForm = () => {
     }
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <label>Nome</label>
+            {/* <div>
+                <Link className={styles.linkBack} to="/">Voltar</Link>
+            </div> */}
             <Input
                 label="Name"
                 type="text"
                 placeholder="Digite aqui seu nome"
-                errors={errors.name}
+                error={errors.name}
                 {...register("name")}
             />
 
-            <label>Email</label>
             <Input
-                // label="Email"
+                label="Email"
                 type="text"
                 placeholder="Digite aqui o seu email"
-                errors={errors.email}
+                path="confirmPassword"
+                error={errors.email}
                 {...register("email")}
             />
 
-            <div>
-                <label>Senha</label>
-                <Input
-                    // label="password"
-                    type="password"
-                    placeholder="Crie uma senha"
-                    errors={errors.password}
-                    {...register("password")}
-                />
-                <button onClick={() => setIsHidden(!isHidden)}>{isHidden ? <MdVisibilityOff/> : <MdVisibility />}</button>
-            </div>
-
-            <label>Confirmar senha</label>
             <Input
-                // label="confirmPassword"
+                label="Senha"
+                type="password"
+                placeholder="Crie uma senha"
+                error={errors.password}
+                {...register("password")}
+            />
+
+            <Input
+                label="Confirmar senha"
                 type="password"
                 placeholder="Confirme sua senha"
-                errors={errors.confirmPassword}
+                error={errors.confirmPassword}
                 {...register("confirmPassword")}
             />
 
-            <label>Bio</label>
             <Input
-                // label="Bio"
+                label="Bio"
                 type="text"
                 placeholder="Escreva sobre você"
-                errors={errors.bio}
+                error={errors.bio}
                 {...register("bio")}
             />
 
-            <label>Contato</label>
             <Input
-                // label="contact"
+                label="Contato"
                 type="text"
                 placeholder="Opção de contato"
-                errors={errors.contact}
+                error={errors.contact}
                 {...register("contact")}
             />
 
-            <label htmlFor="tex">Selecionar Módulo</label>
-            <Select label="select">
+            <Select label="Selecionar Módulo"
+                {...register("course_module")}>
                 <option value="Primeiro">Introdução ao Frontend</option>
                 <option value="Segundo">Frontend Avançado</option>
                 <option value="Terceiro">Introdução ao Backend</option>
                 <option value="Quarto">Backend Avançado</option>
             </Select>
-           
 
             <div>
-                <button className="btnOutline" type="submit" /* disabled={!isValid || !isDirty} */>Cadastre-se</button>
-            </div>
-            <div>
-                <Link className="link" to="/">Voltar</Link>
+                <button className="btnOutline" type="submit">Cadastre-se</button>
             </div>
         </form>
     );

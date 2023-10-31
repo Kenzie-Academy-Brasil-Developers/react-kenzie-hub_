@@ -2,7 +2,6 @@
     display: inline-flex;
     padding: 42px 22px;
     flex-direction: column;
-    // gap: 22px;
 
     border-radius: 4px;
     background-color:  #212529;
@@ -15,8 +14,12 @@
     font-style: normal;
     font-weight: 600;
     line-height: 18px; /* 150% */;
+}
 
-    &.sm{
-        max-width: 470px;
-    }
+.conteinerBox1 {
+    display: flex;
+    width: 1440px;
+    height: 118px;
+    justify-content: center;
+    align-items: center;
 }
