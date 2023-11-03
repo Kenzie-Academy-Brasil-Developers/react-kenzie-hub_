@@ -16,7 +16,6 @@ export const RegisterForm = () => {
     console.log(errors);
 
     const [loading, setLoading] = useState(false);
-
     const navigate = useNavigate();
 
     const userRegister = async (payLoad) => {
@@ -28,9 +27,7 @@ export const RegisterForm = () => {
             toast.success("Cadastro realizado com sucesso!");
         } catch (error) {
             console.log(error);
-            {
-                toast.error("Algo deu errado! :c");
-            }
+            toast.error("Algo deu errado! :c");
         } finally {
             setLoading(false)
         }
@@ -49,6 +46,7 @@ export const RegisterForm = () => {
                 error={errors.name}
                 {...register("name")}
             />
+            {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
 
             <Input
                 label="Email"
@@ -58,6 +56,7 @@ export const RegisterForm = () => {
                 error={errors.email}
                 {...register("email")}
             />
+             {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
 
             <Input
                 label="Senha"
@@ -66,6 +65,7 @@ export const RegisterForm = () => {
                 error={errors.password}
                 {...register("password")}
             />
+             {errors.password && <p className={styles.errorMessage}>{errors.password.message}</p>}
 
             <Input
                 label="Confirmar senha"
@@ -74,6 +74,7 @@ export const RegisterForm = () => {
                 error={errors.confirmPassword}
                 {...register("confirmPassword")}
             />
+                {errors.confirmPassword && <p className={styles.errorMessage}>{errors.confirmPassword.message}</p>}
 
             <Input
                 label="Bio"
@@ -82,6 +83,7 @@ export const RegisterForm = () => {
                 error={errors.bio}
                 {...register("bio")}
             />
+             {errors.bio && <p className={styles.errorMessage}>{errors.bio.message}</p>}
 
             <Input
                 label="Contato"
@@ -90,6 +92,7 @@ export const RegisterForm = () => {
                 error={errors.contact}
                 {...register("contact")}
             />
+            {errors.contact && <p className={styles.errorMessage}>{errors.contact.message}</p>}
 
             <Select label="Selecionar Módulo"
                 {...register("course_module")}>

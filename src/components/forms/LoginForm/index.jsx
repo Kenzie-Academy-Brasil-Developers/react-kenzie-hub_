@@ -7,6 +7,7 @@ import { loginformSchema } from "./loginForm.schema.js";
 import { useState } from "react";
 import api from "../../../services";
 import styles from "./style.module.scss";
+// import { toast } from "react-toastify";
 
 export const LoginForm = ({ setUser }) => {
     const { register, handleSubmit, formState: { errors },               
@@ -25,12 +26,14 @@ export const LoginForm = ({ setUser }) => {
             setUser(data.user);
             console.log(data)
             localStorage.setItem("TOKEN", data.token);
-            localStorage.setItem("USER", data.user);
+            localStorage.setItem("USER", JSON.stringify(data.user));
             navigate("/user");
         } catch (error) {
             console.log(error)
             if (error.response?.status === 401) {
                 toast.error("Credenciais inválidas")
+            } else {
+                toast.error("Algo deu errado! :c")
             }
         } finally {
             setLoading(false);
@@ -50,6 +53,7 @@ export const LoginForm = ({ setUser }) => {
                 error={errors.email}
                 {...register("email")}
             />
+            {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
 
             <Input
                 label="Senha"
@@ -58,7 +62,8 @@ export const LoginForm = ({ setUser }) => {
                 placeholder="Digite sua senha aqui"
                 error={errors.password}
                 {...register("password")}
-            />
+            />  
+            {errors.password && <p className={styles.errorMessage}>{errors.password.message}</p>}
 
             <button className={styles.btnLogin} type="submit" disabled={loading}>Entrar</button>
 
