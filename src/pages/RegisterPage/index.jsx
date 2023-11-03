@@ -1,21 +1,24 @@
-import { Header } from "../../components/Header";
+import React from "react";
 import { RegisterForm } from "../../components/forms/RegisterForm";
-import pageStyles from "../../styles/modules/pageBox.module.scss";
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "../../assets/KenzieHub.png";
+import styles from './style.module.scss';
+import "../../styles/typography.scss"
 
 export const RegisterPage = () => {
     const navigate = useNavigate();
 
     return (
         <>
-            {/* <div>
-                <Link className="linkBack" to="/">Voltar</Link>
-            </div> */}
-            <main className={pageStyles.pageBox}>
-                <div className="container sm">
-                    <div className="">
+            <div className={styles.containerBox}>
+                <img src={Logo} alt="LenzieHub Logo" />
+                <Link className={styles.linkBack} to="/">Voltar</Link>
+            </div>
+            <main className={styles.pageBox}>
+                <div className="container">
+                    <div >
                         <h1 className="title center">Crie sua conta</h1>
-                        <p className="headline">Rápido e grátis, vamos nessa</p>
+                        <p className={styles.headline}>Rápido e grátis, vamos nessa</p>
                         <RegisterForm />
                     </div>
                 </div>

@@ -1,87 +1,48 @@
 .btnLogin {
     display: flex;
-    width: 329.929px;
-    height: 48px;
-    padding: 0px 16.243px;
+    width: 20.6206rem;
+    height: 3rem;
+    padding: 0rem 1.0152rem;
     justify-content: center;
     align-items: center;
-    gap: 8.143px;
+    gap: 0.5089rem;
     flex-shrink: 0;
 
-    border-radius: 3.209px;
-    border: 0.977px solid  #FF577F;
+    border-radius: 0.2006rem;
+    border: 0.0611rem solid  #FF577F;
     background: #FF577F;
 
     color: #FFF;
 
     font-family: 'Inter', sans-serif;
-    font-size: 12.835px;
+    font-size: 0.8022rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 21.173px; /* 164.964% */
+    line-height: 1.3233rem; 
 
     transition: 0.4s;
 }
 
 .btnRegister {
     display: flex;
-    width: 329.929px;
-    height: 48px;
-    padding: 0px 16.243px;
+    width: 20.6206rem;
+    height: 3rem;
+    padding: 0rem 1.0152rem;
     justify-content: center;
     align-items: center;
-    gap: 8.143px;
+    gap: 0.5089rem;
     flex-shrink: 0;
 
-    border-radius: 3.209px;
-    border: 0.977px solid #868E96;
+    border-radius: 0.2006rem;
+    border: 0.0611rem solid #868E96;
     background: #868E96;
 
     color:#F8F9FA;
     font-family: 'Inter', sans-serif;
-    font-size: 12.835px;
+    font-size: 0.8022rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 21.173px; /* 164.964% */
+    line-height: 1.3233rem; 
 
     transition: 0.4s;
-}
-
-.btnOutline {
-    color: #F8F9FA;
-    text-align: center;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 28.425px; /* 236.872% */
-
-    display: inline-flex;
-    height: 32px;
-    padding: 0px 16.243px;
-    justify-content: center;
-    position: relative;
-    align-items: center;
-    gap: 10.152px;
-    flex-shrink: 0;
-
-    border-radius: 4px;
-    background: var(--grey-3, #212529);
-}
-
-.link {
-    display: inline-flex;
-    height: 40.11px;
-    padding: 0px 16.243px;
-    justify-content: center;
-    align-items: center;
-    gap: 10.152px;
-    flex-shrink: 0;
-
-    border-radius: 4px;
-    background: var(--grey-3, #212529);
-
-    &:hover{
-        text-decoration: underline;
-    }
 }

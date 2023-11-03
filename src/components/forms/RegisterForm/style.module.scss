@@ -1,18 +1,18 @@
 .module {
     display: flex;
-    height: 105.577px;
-    padding: 8.121px 0px;
+    height: 6.5986rem;
+    padding: 0.5076rem 0rem;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 10px;
+    gap: 0.625rem;
 
-    color: var(--grey-50, #868E96);
+    color: #868E96;
     font-family: Inter;
-    font-size: 16.243px;
+    font-size: 1.0152rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 26.394px; /* 162.5% */
+    line-height: 1.6496rem;
 }
 
 .path {
@@ -21,16 +21,16 @@
 
 .btnRegister {
     display: flex;
-    width: 329.929px;
-    height: 48px;
-    padding: 0px 16.243px;
+    width: 20.6206rem;
+    height: 3rem;
+    padding: 0rem 1.0152rem;
     justify-content: center;
     align-items: center;
-    gap: 8.143px;
+    gap: 0.5089rem;
     flex-shrink: 0;
 
-    border-radius: 3.198px;
-    border: 0.974px solid #59323F;
+    border-radius: 0.1999rem;
+    border: 0.0609rem solid #59323F;
     background: #59323F;
 }
 

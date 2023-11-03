@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Input } from "../Input";
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginformSchema } from "./loginForm.schema.js";
 import { useState } from "react";
@@ -59,11 +60,11 @@ export const LoginForm = ({ setUser }) => {
                 {...register("password")}
             />
 
-            <button className="btnLogin" type="submit" disabled={loading}>Entrar</button>
+            <button className={styles.btnLogin} type="submit" disabled={loading}>Entrar</button>
 
-            <div className={styles.textAccount}>
-                <p className="headline">Ainda não possui uma conta?</p>
-                <Link className="btnRegister" to="/register">Cadastre-se</Link>
+            <div>
+                <p className={styles.headline}>Ainda não possui uma conta?</p>
+                <Link className={styles.btnRegister} to="/register">Cadastre-se</Link>
             </div>
 
         </form >

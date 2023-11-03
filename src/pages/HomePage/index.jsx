@@ -1,17 +1,27 @@
 import { LoginForm } from "../../components/forms/LoginForm";
-import pageStyles from "../../styles/modules/pageBox.module.scss";
-import React, { useState } from "react";
+import React from "react";
+import Logo from "../../assets/KenzieHub.png";
+import styles from './style.module.scss';
+import "../../styles/modules/pageBox.module.scss";
+import "../../styles/container.scss";
+import "../../styles/typography.scss";
+import "../../styles/button.scss";
 
-export const HomePage = ({setUser}) => {
-   
+export const HomePage = ({ setUser }) => {
+
     return (
-        <main className={pageStyles.pageBox}>
-            <div className="container">
-                <div className="containerBox">
-                    <h1 className="title center">Login</h1>
-                    <LoginForm setUser={setUser} />
-                </div>
+        <>
+            <div className={styles.containerBox}>
+                <img className={styles.headerImage} src={Logo}></img>
             </div>
-        </main>
+            <main className={styles.pageBox}>
+                <div className="container">
+                    <div className="containerBox">
+                        <h1 className="title center">Login</h1>
+                        <LoginForm setUser={setUser} />
+                    </div>
+                </div>
+            </main>
+        </>
     );
 };

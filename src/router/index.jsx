@@ -3,11 +3,10 @@ import { HomePage} from "../pages/HomePage/index";
 import { RegisterPage} from "../pages/RegisterPage";
 import { UserPage} from "../pages/UserPage";
 import { ErrorPage } from "../pages/ErrorPage";
-import { useState } from "react";
+import React from "react";
 
-export const RouterMain = ({user, setUser}) => {
+export const RouterMain = ({user, userLogout, setUser}) => {
    
-
     return(
         <Routes>
             <Route path="/" element={<HomePage setUser={setUser}/>} />

@@ -1,23 +1,21 @@
-import React, { useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFormSchema } from "./registerForm.schema";
 import api from "../../../services";
 import { Select } from "../Select";
-import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import styles from "./style.module.scss";
 
 export const RegisterForm = () => {
-    const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(registerFormSchema),
     });
     console.log(errors);
 
     const [loading, setLoading] = useState(false);
-    const [isHidden, setIsHidden] = useState(true);
 
     const navigate = useNavigate();
 
@@ -44,9 +42,6 @@ export const RegisterForm = () => {
     }
     return (
         <form onSubmit={handleSubmit(submit)}>
-            {/* <div>
-                <Link className={styles.linkBack} to="/">Voltar</Link>
-            </div> */}
             <Input
                 label="Name"
                 type="text"

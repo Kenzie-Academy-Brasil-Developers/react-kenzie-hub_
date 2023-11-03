@@ -10,10 +10,14 @@ const registerFormSchema = z.object({
         .min(1, "O email é obrigatório."),
     password: z
         .string()
-        .min(6, "São necessários pelo menos 6 caracteres."),
+        .min(8, "São necessários pelo menos 8 caracteres.")
+        .regex(/(?=.*?[A-Z])/, "É necessário pelo menos uma letra maiúscula")
+        .regex(/(?=.*?[a-z])/, "É necessário pelo menos uma letra minúscula")
+        .regex(/(?=.*?[0-9])/, "É necessário pelo menos um número.")
+        .regex(/.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\|-].*/),
     confirmPassword: z
         .string()
-        .min(6, "Confirmar a senha é obrigatório."),
+        .min(8, "É necessário confirmar a senha"),
     bio: z
         .string()
         .min(1, "É o obrigatório o preenchento da bio."),
@@ -23,7 +27,7 @@ const registerFormSchema = z.object({
     course_module: z.string(), 
 }).refine(({ password, confirmPassword }) => password === confirmPassword, {
     message: "As senhas não correspondem.",
-    // path: ["confirmPassword"],
+    path: ["confirmPassword"],
 });
 
 export { registerFormSchema }

@@ -1,0 +1,36 @@
+.containerBox{
+    width: 100%;
+    padding: 77.329px 0px 10px 0px;
+    
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    gap: 148px;
+    align-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    background: #121214;
+
+    color: #F8F9FA;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28.425px; /* 236.872% */
+}
+
+.pageBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background: #121214;
+
+    min-height: 100vh; 
+}
+
+.headerImage {
+    display: inline-flex; 
+}
