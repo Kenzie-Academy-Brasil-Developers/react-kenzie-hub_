@@ -51,7 +51,7 @@ export const UserProvider = ({ children }) => {
             localStorage.setItem("@TOKEN", data.accessToken);
             localStorage.setItem("@USERID", data.user.id);
             reset();
-            navigate("/user");
+            navigate("/users");
         } catch (error) {
             console.log(error)
             if (error.response) {
