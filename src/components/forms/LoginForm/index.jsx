@@ -1,48 +1,27 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Input } from "../Input";
-import React from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../../../providers/UsersContext.jsx";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginformSchema } from "./loginForm.schema.js";
-import { useState } from "react";
-import api from "../../../services";
 import styles from "./style.module.scss";
-// import { toast } from "react-toastify";
 
-export const LoginForm = ({ setUser }) => {
-    const { register, handleSubmit, formState: { errors },               
+export const LoginForm = () => {
+    const { register, handleSubmit, formState: { errors },
+        reset,
     } = useForm({
         resolver: zodResolver(loginformSchema),
     });
 
+    const { userLogin } = useContext(UserContext);
+
     const [loading, setLoading] = useState(false);
 
-    const navigate = useNavigate()
-
-    const userLogin = async (payLoad) => {
-        try {
-            setLoading(true);
-            const { data } = await api.post("/sessions", payLoad);
-            setUser(data.user);
-            console.log(data)
-            localStorage.setItem("TOKEN", data.token);
-            localStorage.setItem("USER", JSON.stringify(data.user));
-            navigate("/user");
-        } catch (error) {
-            console.log(error)
-            if (error.response?.status === 401) {
-                toast.error("Credenciais inválidas")
-            } else {
-                toast.error("Algo deu errado! :c")
-            }
-        } finally {
-            setLoading(false);
-        }
+    const submit = (formData) => {
+        userLogin(formData, setLoading, reset);
     };
 
-    const submit = (payLoad) => {
-        userLogin(payLoad);
-    }
     return (
         <form className={styles.container} onSubmit={handleSubmit(submit)}>
             <Input
@@ -62,8 +41,9 @@ export const LoginForm = ({ setUser }) => {
                 placeholder="Digite sua senha aqui"
                 error={errors.password}
                 {...register("password")}
-            />  
+            />
             {errors.password && <p className={styles.errorMessage}>{errors.password.message}</p>}
+
 
             <button className={styles.btnLogin} type="submit" disabled={loading}>Entrar</button>
 

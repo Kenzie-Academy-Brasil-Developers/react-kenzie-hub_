@@ -7,8 +7,7 @@ import "../../styles/container.scss";
 import "../../styles/typography.scss";
 import "../../styles/button.scss";
 
-export const HomePage = ({ setUser }) => {
-
+export const HomePage = () => {
     return (
         <>
             <div className={styles.containerBox}>
@@ -18,7 +17,7 @@ export const HomePage = ({ setUser }) => {
                 <div className="container">
                     <div className="containerBox">
                         <h1 className="title center">Login</h1>
-                        <LoginForm setUser={setUser} />
+                        <LoginForm />
                     </div>
                 </div>
             </main>

@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../../assets/KenzieHub.png";
 import styles from './style.module.scss';
-import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../providers/UsersContext";
 
-export const UserPage = ({ user }) => {
-    const navigate = useNavigate();
-    
+export const UserPage = () => {
+    const {user, userLogout} = useContext(UserContext);
+
     return (
         <>
             <div className={styles.dadContainer}>
                 <div className={styles.containerSon1}>
                     <img src={Logo} alt="KenzieHub Logo"></img>
-                    {user && (<Link to="/" className={styles.btnOutline}>Sair</Link>)}
+                    {user && <button onClick={userLogout} className={styles.btnOutline}>Sair</button>}
                 </div>
                 <main>
                     <div className={styles.containerSon2}>

@@ -1,12 +1,12 @@
 import React from "react";
 import { RegisterForm } from "../../components/forms/RegisterForm";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/KenzieHub.png";
 import styles from './style.module.scss';
 import "../../styles/typography.scss"
 
+
 export const RegisterPage = () => {
-    const navigate = useNavigate();
 
     return (
         <>

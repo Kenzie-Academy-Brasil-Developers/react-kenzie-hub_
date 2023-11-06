@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFormSchema } from "./registerForm.schema";
-import api from "../../../services";
 import { Select } from "../Select";
-import { toast } from "react-toastify";
 import styles from "./style.module.scss";
+import { UserContext } from "../../../providers/UsersContext";
 
 export const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -16,27 +14,12 @@ export const RegisterForm = () => {
     console.log(errors);
 
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+    const {userRegister} = useContext(UserContext);
 
-    const userRegister = async (payLoad) => {
-        console.log(payLoad)
-        try {
-            setLoading(true);
-            await api.post("/users", payLoad);
-            navigate("/");
-            toast.success("Cadastro realizado com sucesso!");
-        } catch (error) {
-            console.log(error);
-            toast.error("Algo deu errado! :c");
-        } finally {
-            setLoading(false)
-        }
+    const submit = (formData) => {
+        userRegister(formData, setLoading);
     };
 
-    const submit = (payLoad) => {
-        userRegister(payLoad);
-        console.log(payLoad)
-    }
     return (
         <form onSubmit={handleSubmit(submit)}>
             <Input
