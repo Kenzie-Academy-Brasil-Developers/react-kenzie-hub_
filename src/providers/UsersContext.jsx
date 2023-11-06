@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
         const getUser = async () => {
             try {
                 setLoading(true);
-                const { data } = await api.get(`/user/${userId}`,{
+                const { data } = await api.get(`/users/${userId}`,{
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
     const userLogin = async (formData, setLoading, reset) => {
         try {
             setLoading(true);
-            const { data } = await api.post("/login", formData);
+            const { data } = await api.post("/sessions", formData);
             setUser(data.user);
             localStorage.setItem("@TOKEN", data.accessToken);
             localStorage.setItem("@USERID", data.user.id);
@@ -72,7 +72,7 @@ export const UserProvider = ({ children }) => {
         console.log(formData, setLoading)
         try {
             setLoading(true);
-            await api.post("/user", formData);
+            await api.post("/users", formData);
             navigate("/");
             toast.success("Cadastro realizado com sucesso!");
         } catch (error) {
