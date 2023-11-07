@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/index.js";
 
@@ -9,6 +9,10 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const { state } = useLocation();
+
+    const pathname = window.location.pathname;
+
     useEffect(() => {
         const token = localStorage.getItem("@TOKEN");
         const userId = localStorage.getItem("@USERID");
@@ -16,15 +20,15 @@ export const UserProvider = ({ children }) => {
         const getUser = async () => {
             try {
                 setLoading(true);
-                const { data } = await api.get(`/users/${userId}`,{
+                const { data } = await api.get(`/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
                 setUser(data);
-                navigate("/user")
-            }  catch (error) {
-               console.log(error);
+                navigate(pathname)
+            } catch (error) {
+                console.log(error);
             } finally {
                 setLoading(false);
             }
@@ -51,7 +55,7 @@ export const UserProvider = ({ children }) => {
             localStorage.setItem("@TOKEN", data.accessToken);
             localStorage.setItem("@USERID", data.user.id);
             reset();
-            navigate("/users");
+            navigate(state?.lastRoute ? state.lastRoute : pathname);
         } catch (error) {
             console.log(error)
             if (error.response) {
@@ -83,7 +87,7 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-    return <UserContext.Provider value={{  loading, user, userLogin, userLogout, userRegister }}>
+    return <UserContext.Provider value={{ loading, user, userLogin, userLogout, userRegister }}>
         {children}
     </UserContext.Provider>
 };
